@@ -6,13 +6,12 @@ class PokemonAdmin(admin.ModelAdmin):
     list_display = ("id","name","hp","active")
     list_filter = ("active",)
     list_display_links = ("id","name")
-    fieldsets = (
-        (None, {
-            'fields': ('name_fr','name_ar','name_jp')
+fieldsets = (
+        ('', {
+            'fields': ('name', 'type', 'hp', 'active', 'created_at', 'models_at',),
         }),
-        ('Advanced options', {
+        ('localization', {
             'classes': ('collapse',),
-            'fields': ('Localizations',),
-        }),
-    )
+            'fields': ('name_fr', 'name_ar' ,'name_jp'),
+        }),)
 admin.site.register(Pokemon, PokemonAdmin)
